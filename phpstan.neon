@@ -1,0 +1,14 @@
+includes:
+- vendor/nunomaduro/larastan/extension.neon
+parameters:
+  level: 9
+  reportUnmatchedIgnoredErrors: false
+  paths:
+  - src
+  - tests
+  ignoreErrors:
+  - '#Unsafe usage of new static.*#'
+  - '#^Method Barnicolly\\ModelSearch\\Tests\\Fixtures\\Models\\TestingModel\:\:toSearchArray\(\) return type has no value type specified in iterable type array\.$#'
+  - '#^Method Barnicolly\\ModelSearch\\Contracts\\SearchContract\:\:toSearchArray\(\) return type has no value type specified in iterable type array\.$#'
+  # level 6
+  checkGenericClassInNonGenericObjectType: false

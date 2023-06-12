@@ -17,6 +17,10 @@ class SearchableTraitTestCase extends ApplicationTestCase
         self::assertSame($expected, $model->getSearchIndex());
     }
 
+
+    /**
+     * @return string[][]
+     */
     public static function providerIndexNames(): array
     {
         $model = new TestingModel();

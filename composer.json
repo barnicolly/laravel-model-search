@@ -12,7 +12,9 @@
         "php": "^8",
         "elasticsearch/elasticsearch": "8.7.1",
         "illuminate/contracts": "^8 || ^9 || ^10",
-        "illuminate/support": "^8 || ^9 || ^10"
+        "illuminate/support": "^8 || ^9 || ^10",
+        "nunomaduro/larastan": "^2.6",
+        "phpstan/phpstan": "^1.10"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2.31",
@@ -48,6 +50,7 @@
     "scripts": {
         "post-autoload-dump": [
             "@php vendor/bin/testbench package:discover --ansi"
-        ]
+        ],
+        "phpstan": "php -d xdebug.mode=off ./vendor/bin/phpstan analyse --memory-limit=2G"
     }
 }

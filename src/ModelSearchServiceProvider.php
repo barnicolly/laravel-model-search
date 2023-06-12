@@ -25,7 +25,7 @@ class ModelSearchServiceProvider extends ServiceProvider
     private function bindSearchClient(): void
     {
         $this->app->bind(Client::class, static fn($app): Client => ClientBuilder::create()
-            ->setHosts(config('model_search.hosts'))
+            ->setHosts((array) config('model_search.hosts'))
             ->build());
     }
 }
