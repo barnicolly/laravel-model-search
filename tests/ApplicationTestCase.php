@@ -2,7 +2,7 @@
 
 namespace Barnicolly\ModelSearch\Tests;
 
-use Barnicolly\ModelSearch\ModelSearchServiceProvider;
+use Barnicolly\ModelSearch\ServiceProviders\ModelSearchServiceProvider;
 use Orchestra\Testbench\TestCase;
 
 class ApplicationTestCase extends TestCase
