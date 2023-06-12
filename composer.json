@@ -10,11 +10,12 @@
     ],
     "require": {
         "php": "^8",
+        "elasticsearch/elasticsearch": "8.7.1",
         "illuminate/contracts": "^8 || ^9 || ^10",
-        "illuminate/support": "^8 || ^9 || ^10",
-        "elasticsearch/elasticsearch": "8.7.1"
+        "illuminate/support": "^8 || ^9 || ^10"
     },
     "require-dev": {
+        "ergebnis/composer-normalize": "^2.31",
         "orchestra/testbench": "^8.5",
         "phpunit/phpunit": "^10.2"
     },
@@ -30,6 +31,13 @@
             "Barnicolly\\ModelSearch\\Tests\\": "tests"
         }
     },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true,
+            "ergebnis/composer-normalize": true
+        },
+        "sort-packages": true
+    },
     "extra": {
         "laravel": {
             "providers": [
@@ -41,10 +49,5 @@
         "post-autoload-dump": [
             "@php vendor/bin/testbench package:discover --ansi"
         ]
-    },
-    "config": {
-        "allow-plugins": {
-            "php-http/discovery": true
-        }
     }
 }
