@@ -11,7 +11,8 @@
     "require": {
         "php": "^8",
         "illuminate/contracts": "^8 || ^9 || ^10",
-        "illuminate/support": "^8 || ^9 || ^10"
+        "illuminate/support": "^8 || ^9 || ^10",
+        "elasticsearch/elasticsearch": "8.7.1"
     },
     "require-dev": {
         "orchestra/testbench": "^8.5",
@@ -32,7 +33,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Barnicolly\\ModelSearch\\ModelSearchServiceProvider"
+                "Barnicolly\\ModelSearch\\ServiceProviders\\ModelSearchServiceProvider"
             ]
         }
     },
@@ -40,5 +41,10 @@
         "post-autoload-dump": [
             "@php vendor/bin/testbench package:discover --ansi"
         ]
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     }
 }
