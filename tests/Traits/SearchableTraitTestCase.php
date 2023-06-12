@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Barnicolly\ModelSearch\Tests\Traits;
 
@@ -17,7 +19,6 @@ class SearchableTraitTestCase extends ApplicationTestCase
         self::assertSame($expected, $model->getSearchIndex());
     }
 
-
     /**
      * @return string[][]
      */
@@ -26,11 +27,11 @@ class SearchableTraitTestCase extends ApplicationTestCase
         $model = new TestingModel();
         return [
             'one_word' => [
-                'name'  . '-' . $model->getTable(),
+                'name-' . $model->getTable(),
                 'name',
             ],
             'special_symbol' => [
-                'second-name'  . '-' . $model->getTable(),
+                'second-name-' . $model->getTable(),
                 'second.name',
             ],
         ];

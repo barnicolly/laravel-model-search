@@ -10,13 +10,13 @@ use Illuminate\Support\Collection;
 
 class ElasticSearchIndexModelBulkTask
 {
-
     public function __construct(private readonly Client $elasticsearch)
     {
     }
 
     /**
-     * @param  Collection<SearchContract>  $collection
+     * @param Collection<SearchContract> $collection
+     *
      * @throws ClientResponseException
      * @throws ServerResponseException
      */
@@ -27,8 +27,8 @@ class ElasticSearchIndexModelBulkTask
             $params['body'][] = [
                 'index' => [
                     '_index' => $item->getSearchIndex(),
-                    '_id'    => $item->getKey(),
-                ]
+                    '_id' => $item->getKey(),
+                ],
             ];
             $params['body'][] = $item->toSearchArray();
         }

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Barnicolly\ModelSearch;
@@ -16,7 +17,7 @@ class ModelSearchServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/model_search.php',
+            __DIR__ . '/../config/model_search.php',
             'model_search'
         );
         $this->bindSearchClient();
@@ -24,7 +25,7 @@ class ModelSearchServiceProvider extends ServiceProvider
 
     private function bindSearchClient(): void
     {
-        $this->app->bind(Client::class, static fn($app): Client => ClientBuilder::create()
+        $this->app->bind(Client::class, static fn ($app): Client => ClientBuilder::create()
             ->setHosts((array) config('model_search.hosts'))
             ->build());
     }

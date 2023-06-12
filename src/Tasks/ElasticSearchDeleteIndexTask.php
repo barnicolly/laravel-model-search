@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Barnicolly\ModelSearch\Tasks;
 
@@ -9,7 +11,6 @@ use Elastic\Elasticsearch\Exception\ServerResponseException;
 
 class ElasticSearchDeleteIndexTask
 {
-
     public function __construct(private readonly Client $elasticsearch)
     {
     }
