@@ -11,15 +11,15 @@
     "require": {
         "php": "^8",
         "elasticsearch/elasticsearch": "8.7.1",
-        "friendsofphp/php-cs-fixer": "^3.17",
         "illuminate/contracts": "^8 || ^9 || ^10",
-        "illuminate/support": "^8 || ^9 || ^10",
-        "nunomaduro/larastan": "^2.6",
-        "phpstan/phpstan": "^1.10"
+        "illuminate/support": "^8 || ^9 || ^10"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2.31",
+        "friendsofphp/php-cs-fixer": "^3.17",
+        "nunomaduro/larastan": "^2.6",
         "orchestra/testbench": "^8.5",
+        "phpstan/phpstan": "^1.10",
         "phpunit/phpunit": "^10.2"
     },
     "minimum-stability": "dev",
