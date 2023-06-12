@@ -6,7 +6,7 @@ interface SearchContract
 {
     public function getSearchIndex(): string;
 
-    public function getKey(): mixed;
+    public function getKey();
 
     public function toSearchArray(): array;
 }
