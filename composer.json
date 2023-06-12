@@ -11,6 +11,7 @@
     "require": {
         "php": "^8",
         "elasticsearch/elasticsearch": "8.7.1",
+        "friendsofphp/php-cs-fixer": "^3.17",
         "illuminate/contracts": "^8 || ^9 || ^10",
         "illuminate/support": "^8 || ^9 || ^10",
         "nunomaduro/larastan": "^2.6",
@@ -51,6 +52,7 @@
         "post-autoload-dump": [
             "@php vendor/bin/testbench package:discover --ansi"
         ],
-        "phpstan": "php -d xdebug.mode=off ./vendor/bin/phpstan analyse --memory-limit=2G"
+        "phpstan": "php -d xdebug.mode=off ./vendor/bin/phpstan analyse --memory-limit=2G",
+        "cs": "php -d xdebug.mode=off ./vendor/bin/php-cs-fixer fix -v --diff"
     }
 }
