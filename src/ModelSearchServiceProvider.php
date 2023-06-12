@@ -1,6 +1,7 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
-namespace Barnicolly\ModelSearch\ServiceProviders;
+namespace Barnicolly\ModelSearch;
 
 use Elastic\Elasticsearch\Client;
 use Elastic\Elasticsearch\ClientBuilder;
@@ -15,7 +16,8 @@ class ModelSearchServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/model_search.php', 'model_search'
+            __DIR__.'/../config/model_search.php',
+            'model_search'
         );
         $this->bindSearchClient();
     }

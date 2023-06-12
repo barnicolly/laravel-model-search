@@ -33,7 +33,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Barnicolly\\ModelSearch\\ServiceProviders\\ModelSearchServiceProvider"
+                "Barnicolly\\ModelSearch\\ModelSearchServiceProvider"
             ]
         }
     },

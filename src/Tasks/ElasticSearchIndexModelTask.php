@@ -2,12 +2,13 @@
 
 namespace Barnicolly\ModelSearch\Tasks;
 
+use Barnicolly\ModelSearch\Contracts\SearchContract;
 use Elastic\Elasticsearch\Client;
 use Elastic\Elasticsearch\Exception\ClientResponseException;
 use Elastic\Elasticsearch\Exception\MissingParameterException;
 use Elastic\Elasticsearch\Exception\ServerResponseException;
 
-class ElasticSearchCreateIndexTask
+class ElasticSearchIndexModelTask
 {
 
     public function __construct(private readonly Client $elasticsearch)
@@ -19,12 +20,13 @@ class ElasticSearchCreateIndexTask
      * @throws ClientResponseException
      * @throws MissingParameterException
      */
-    public function run(string $index, ?string $body = null): void
+    public function run(SearchContract $model): void
     {
         $params = [
-            'index' => $index,
-            'body' => $body,
+            'index' => $model->getSearchIndex(),
+            'id' => $model->getKey(),
+            'body' => $model->toSearchArray(),
         ];
-        $this->elasticsearch->indices()->create($params);
+        $this->elasticsearch->index($params);
     }
 }
