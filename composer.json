@@ -1,0 +1,44 @@
+{
+    "name": "barnicolly/laravel-model-search",
+    "description": "",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "laravel",
+        "package",
+        "elasticsearch"
+    ],
+    "require": {
+        "php": "^8",
+        "illuminate/contracts": "^8 || ^9 || ^10",
+        "illuminate/support": "^8 || ^9 || ^10"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.5",
+        "phpunit/phpunit": "^10.2"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Barnicolly\\ModelSearch\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Barnicolly\\ModelSearch\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Barnicolly\\ModelSearch\\ModelSearchServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@php vendor/bin/testbench package:discover --ansi"
+        ]
+    }
+}
