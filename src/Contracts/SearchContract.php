@@ -8,6 +8,7 @@ interface SearchContract
 {
     public function getSearchIndex(): string;
 
+    /** @return mixed */
     public function getKey();
 
     public function toSearchArray(): array;

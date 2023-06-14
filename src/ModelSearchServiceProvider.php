@@ -25,9 +25,15 @@ class ModelSearchServiceProvider extends ServiceProvider
 
     private function bindSearchClient(): void
     {
-        $this->app->bind(Client::class, static fn ($app): Client => ClientBuilder::create()
-            ->setHosts((array) config('model_search.hosts'))
-            ->setBasicAuthentication(config('model_search.username'), config('model_search.password'))
-            ->build());
+        $password = config('model_search.password');
+        $username = config('model_search.username');
+        $this->app->bind(Client::class, static function () use ($username, $password): Client {
+            $concrete = ClientBuilder::create()
+                ->setHosts((array) config('model_search.hosts'));
+            if (is_string($password) && is_string($username) && $password && $username) {
+                $concrete->setBasicAuthentication($username, $password);
+            }
+            return $concrete->build();
+        });
     }
 }
