@@ -27,6 +27,7 @@ class ModelSearchServiceProvider extends ServiceProvider
     {
         $this->app->bind(Client::class, static fn ($app): Client => ClientBuilder::create()
             ->setHosts((array) config('model_search.hosts'))
+            ->setBasicAuthentication(config('model_search.username'), config('model_search.password'))
             ->build());
     }
 }
